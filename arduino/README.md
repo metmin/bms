@@ -1,1 +1,1 @@
-DENEME
+Arduino kodları buraya.
