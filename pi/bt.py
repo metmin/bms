@@ -1,27 +1,15 @@
-from machine import UART, Pin
+'''
+UART communication on Raspberry Pi using Pyhton
+http://www.electronicwings.com
+'''
+import serial
+from time import sleep
 
-rxData = bytes()
-
-uart = UART("/dev/ttyAMA0", baudrate = 9600, tx=Pin(0), rx=Pin(1))
-in1 = Pin(11, Pin.OUT)
-in2 = Pin(13, Pin.OUT)
-
-in1.value(1)
-in2.value(0)
-uart.write("Sistem başlıyor.")
-
-
+ser = serial.Serial ("/dev/ttyS0", 9600)    #Open port with baud rate
 while True:
-    if uart.any() > 0:
-        rxData = uart.read(1);
-        
-        if "1" in rxData:
-               uart.write("Led 1 ve Led 2 açıldı")
-               print("Led 1 ve Led 2 açıldı")
-               in1.value(0)
-               in2.value(0)
-        elif "0" in rxData:
-               uart.write("Led 1 ve Led 2 kapandı")
-               print("Led 1 ve Led 2 kapandı")
-               in1.value(1)
-               in2.value(1)
+    received_data = ser.read()              #read serial port
+    sleep(0.03)
+    data_left = ser.inWaiting()             #check for remaining byte
+    received_data += ser.read(data_left)
+    print (received_data)                   #print received data
+    ser.write(received_data)                #transmit data serially 
