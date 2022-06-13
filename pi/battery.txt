@@ -1,0 +1,1 @@
+voltage0=3841,voltage1=3818,voltage2=3837,voltage3=3822,voltage4=3838,voltage5=4033,voltage6=4009,voltage7=4037,voltage8=4037,voltage9=4082,batvolt=39391,temp=25
