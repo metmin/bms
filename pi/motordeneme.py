@@ -48,7 +48,7 @@ def control(counter = 1):
     return True
     
 
-def get_values_example(values):
+def motor_control(values):
 
     if control() == False:
         print('Motor sürücü kartı bulunamadı, program kapanıyor.')
@@ -97,6 +97,6 @@ def get_values_example(values):
 
 if __name__ == "__main__":
     
-   motorStart = multiprocessing.Process(target=get_values_example,args=(values,))
+   motorStart = multiprocessing.Process(target=motor_control,args=(values,))
    motorStart.start()
 
