@@ -13,7 +13,7 @@ def manipulate_data(data, speed):
     data_json['speed'] = speed
     
     # get batvolt as persentage
-    data_json['batvolt'] = int ((100 * (int (data_json['batvolt']))) / 42000)
+    data_json['batvolt'] = int ((int (data_json['batvolt']) - 30000) / 120)
     
     return(json.dumps(data_json))
 
