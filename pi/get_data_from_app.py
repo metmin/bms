@@ -9,5 +9,10 @@ while True:
     print('data aliniyor...')
     received_data = ser.readline()
     print('data alindi.')
+    
+    f = open("battery.txt", "w")
+    f.write(line)
+    f.close()
+    
     print (received_data)
     #break
