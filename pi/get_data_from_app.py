@@ -10,7 +10,7 @@ while True:
     received_data = ser.readline()
     print('data alindi.')
     
-    f = open("battery.txt", "w")
+    f = open("gyroscope.txt", "w")
     f.write(line)
     f.close()
     
